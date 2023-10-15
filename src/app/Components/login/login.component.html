@@ -5,4 +5,34 @@
   <h1>Login</h1>
 
   <!-- TODO 21 -->
+
+  <form *ngIf="loginForm" [formGroup]="loginForm" (ngSubmit)="login()">
+
+    <div>
+      <label for="email">Email: </label>
+      <input type="text" [formControl]="email">
+      <!--
+      <div *ngIf="email.errors">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Please use a correct format</div>
+      </div>-->
+    </div>
+
+    <div>
+      <label for="password">Password: </label>
+      <input type="password" [formControl]="password">
+
+      <!--
+      <div *ngIf="password.errors">
+        <div *ngIf="password.errors.required">Password is required</div>
+        <div *ngIf="password.errors.minlength">Password must has at least 8 characters</div>
+        <div *ngIf="password.errors.maxlength">Password can not have more than 16 characters</div>
+      </div>-->
+    </div>
+
+
+
+    <button type="submit" [disabled]="loginForm.invalid">LOGIN</button>
+  </form>
+
 </div>
